@@ -2,15 +2,17 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
+
 {
 
-    public float speed = 5f;
+    public float speedMul = 1f;
     public GameObject kirbyPrefab; 
+
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = transform.position;
+        /*Vector3 pos = transform.position;
 
         if (Input.GetKey("w")) 
         {
@@ -34,7 +36,12 @@ public class PlayerMovement : MonoBehaviour
         }
     
 
-        transform.position = pos;
+        transform.position = pos; */
+
+        float xPos = Input.GetAxis("Horizontal");
+        float speed = Time.deltaTime * speedMul * xPos;
+    
+
 
 
     }
