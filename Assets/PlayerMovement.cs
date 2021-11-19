@@ -6,7 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speedMul = 1f;
+    private Rigidbody2D rb;
     public GameObject kirbyPrefab; 
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+
+    }
 
 
     // Update is called once per frame
@@ -40,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
         float xPos = Input.GetAxis("Horizontal");
         float speed = Time.deltaTime * speedMul * xPos;
+
+        rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
     
 
 
